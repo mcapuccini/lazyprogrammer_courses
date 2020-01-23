@@ -1,5 +1,5 @@
 # Start from tensoflow container
-FROM tensorflow/tensorflow:2.0.0-py3
+FROM tensorflow/tensorflow:2.0.0-py3-jupyter
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -10,7 +10,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # Copy pip requirements
-COPY requirements.txt /tmp/pip-tmp/
+COPY .devcontainer/requirements.txt /tmp/pip-tmp/
 
 # Configure apt and install packages
 RUN apt-get update \
@@ -34,6 +34,8 @@ RUN apt-get update \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
+    # Gym dependencies
+    && apt-get -y install xvfb ffmpeg \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
