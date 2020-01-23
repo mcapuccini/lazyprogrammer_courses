@@ -14,5 +14,7 @@
 		"ms-python.python",
 		"ms-azuretools.vscode-docker"
 	],
+	"postCreateCommand": [".devcontainer/startup.sh"],
+	"containerEnv": { "DISPLAY": ":1" },
 	"mounts": ["source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=default"]
 }

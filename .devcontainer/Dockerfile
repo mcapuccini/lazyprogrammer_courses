@@ -35,7 +35,7 @@ RUN apt-get update \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
     # Gym dependencies
-    && apt-get -y install xvfb ffmpeg \
+    && apt-get -y install python-opengl xvfb ffmpeg \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \

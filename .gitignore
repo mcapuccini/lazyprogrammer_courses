@@ -1,3 +1,5 @@
 __pycache__
 video
 xvfb.log
+openaigym.*
+.DS_store
