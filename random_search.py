@@ -46,6 +46,6 @@ plt.show()
 play_T_episodes(env, 100, params)
 
 # %% Play one more episode and save video
-wrp = gym.wrappers.Monitor(env, "video/random_search.py", force=True)
+wrp = gym.wrappers.Monitor(env, "video/random_search", force=True)
 play_T_episodes(wrp, 1, params)
 wrp.close()
