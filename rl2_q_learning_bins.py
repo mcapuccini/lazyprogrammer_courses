@@ -32,7 +32,7 @@ def plot_running_avg(totalrewards):
     plt.title("Running Average")
     plt.show()
 
-def eps_greedy(env, Q_state):
+def eps_greedy(env, Q_state, eps):
     if np.random.random() < eps:
         return env.action_space.sample()
     else:
@@ -45,7 +45,7 @@ def play_episode(env, Q, eps, gamma=0.9, alpha=1e-2):
     tot_reward = 0
     while not done:
         # Step
-        action = eps_greedy(env, Q[state])
+        action = eps_greedy(env, Q[state], eps)
         obs_prime, rew, done, _ = env.step(action)
         # Update tot rew
         tot_reward += rew
@@ -72,5 +72,6 @@ for n in range(N):
     tot_rewards[n] = tot_reward
     if n % 100 == 0:
         print("episode:", n, "tot rew run avg:", tot_rewards[max(0, n-100):(n+1)].mean(), "eps:", eps)
+        
 # Plot
 plot_running_avg(tot_rewards)
