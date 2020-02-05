@@ -71,6 +71,6 @@ for n in range(N):
     Q, tot_reward = play_episode(env, Q, eps)
     tot_rewards[n] = tot_reward
     if n % 100 == 0:
-        print("episode:", n, ", tot rew run avg:", tot_rewards[max(0, n-100):(n+1)].mean(), ", eps:", eps)
+        print("episode:", n, "tot rew run avg:", tot_rewards[max(0, n-100):(n+1)].mean(), "eps:", eps)
 # Plot
 plot_running_avg(tot_rewards)
