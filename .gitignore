@@ -3,3 +3,4 @@ video
 xvfb.log
 openaigym.*
 .DS_store
+*.png
