@@ -1,5 +1,5 @@
 # Start from tensoflow container
-FROM tensorflow/tensorflow:2.0.0-py3-jupyter
+FROM tensorflow/tensorflow:2.1.0-py3-jupyter
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
